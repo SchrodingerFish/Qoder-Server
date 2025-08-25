@@ -1,0 +1,8 @@
+/src/main/resources/application-dev.yml
+/target/classes/application-dev.yml
+
+.idea/
+*.iml
+.fastRequest/
+*.logs
+
