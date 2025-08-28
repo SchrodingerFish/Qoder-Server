@@ -1,4 +1,4 @@
-# SQL Executor - SQL 查询执行服务
+# 简单SQL编辑器（服务端）
 
 一个基于 Spring Boot + PostgreSQL + Spring JDBC 的安全 SQL 查询执行服务，提供结构化的 SQL 查询执行和 Excel 导出功能。
 
@@ -55,6 +55,9 @@
 ```
 
 ## 🚀 快速开始
+
+### 配合前端使用
+-   简单SQL编辑器前端[https://github.com/SchrodingerFish/Qoder]
 
 ### 环境要求
 
