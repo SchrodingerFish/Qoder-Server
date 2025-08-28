@@ -57,7 +57,7 @@
 ## 🚀 快速开始
 
 ### 配合前端使用
--   简单SQL编辑器前端[https://github.com/SchrodingerFish/Qoder]
+-   [简单SQL编辑器前端](https://github.com/SchrodingerFish/Qoder)
 
 ### 环境要求
 
