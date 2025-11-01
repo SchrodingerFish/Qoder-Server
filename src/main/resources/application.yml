@@ -49,7 +49,7 @@ sql-executor:
 logging:
     level:
         com.example.sqlexecutor: DEBUG
-        org.springframework.jdbc: DEBUG
+        org.springframework.jdbc: INFO
     pattern:
         console: '%d{yyyy-MM-dd HH:mm:ss} - %msg%n'
 
