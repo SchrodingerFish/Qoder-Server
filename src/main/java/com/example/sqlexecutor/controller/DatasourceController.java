@@ -64,13 +64,14 @@ public class DatasourceController {
             MultiDatasourceQueryResponse response = multiDatasourceQueryService
                     .executeMultiDatasourceQuery(request);
 
+            // 总是返回OK状态，让前端根据每个数据源的结果来显示
+            // 即使整体标记为失败，也要返回详细的结果信息
             if (response.isSuccess()) {
                 log.info("多数据源查询执行成功: {}", response.getMessage());
-                return ResponseEntity.ok(response);
             } else {
-                log.warn("多数据源查询执行失败: {}", response.getMessage());
-                return ResponseEntity.badRequest().body(response);
+                log.warn("多数据源查询执行完成，但包含错误: {}", response.getMessage());
             }
+            return ResponseEntity.ok(response);
 
         } catch (Exception e) {
             log.error("多数据源查询执行异常", e);

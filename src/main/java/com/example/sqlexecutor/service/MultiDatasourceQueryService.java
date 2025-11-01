@@ -126,8 +126,9 @@ public class MultiDatasourceQueryService {
 
             log.info("{}, 总执行时间: {}ms", message, totalExecutionTime);
 
+            // 即使部分查询失败，也返回成功状态，让前端能够显示所有结果
             return MultiDatasourceQueryResponse.builder()
-                    .success(failedCount == 0)
+                    .success(true) // 总是返回true，以便前端可以显示所有结果标签页
                     .message(message)
                     .results(results)
                     .totalExecutionTime(totalExecutionTime)
