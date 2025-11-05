@@ -1,0 +1,28 @@
+# Node
+Qoder/node_modules
+Qoder/.vite
+Qoder/.cache
+Qoder/dist
+
+# Java/Maven
+Qoder-Server/target
+Qoder-Server/.mvn
+Qoder-Server/.idea
+
+# OS/editor
+**/.DS_Store
+**/Thumbs.db
+**/.idea
+**/.vscode
+**/*.log
+
+# Git
+.git
+.gitignore
+
+# Build outputs
+*.jar
+*.war
+*.iml
+
+

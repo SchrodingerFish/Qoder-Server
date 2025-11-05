@@ -1,0 +1,67 @@
+server:
+    port: 8080
+    servlet:
+        context-path: /
+
+spring:
+    application:
+        name: sql-executor
+    datasource:
+        url: jdbc:postgresql://172.16.130.127:5432/mine
+        username: postgres
+        password: xxx
+        driver-class-name: org.postgresql.Driver
+        hikari:
+            maximum-pool-size: 20
+            minimum-idle: 5
+            idle-timeout: 300000
+            connection-timeout: 30000
+            max-lifetime: 1800000
+
+    # JPA配置（如果需要）
+    jpa:
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
+        hibernate:
+            ddl-auto: none
+        show-sql: false
+
+# 应用自定义配置
+sql-executor:
+    # 默认查询超时时间（毫秒）
+    default-timeout: 30000
+    # 最大返回行数（-1表示不限制）
+    max-rows: -1
+    # 允许的SQL操作类型
+    allowed-operations: SELECT,INSERT,UPDATE,DELETE,WITH
+    # 禁止的关键字
+    #    forbidden-keywords: DROP,TRUNCATE,ALTER,CREATE,GRANT,REVOKE
+    forbidden-keywords: ''
+    # 多数据源配置
+    multi-datasource:
+        # 并行查询线程池大小
+        thread-pool-size: 10
+    # 加密配置
+    encryption:
+        # 密码加密密钥（生产环境请修改为强密钥，建议32位以上）
+        # 可以使用 PasswordEncryptor.generateRandomKey() 生成
+        secret-key: 'MySecretKey123456MySecretKey123456'
+# 日志配置
+logging:
+    level:
+        com.example.sqlexecutor: DEBUG
+        org.springframework.jdbc: INFO
+    pattern:
+        console: '%d{yyyy-MM-dd HH:mm:ss} - %msg%n'
+    charset:
+        console: UTF-8
+        file: UTF-8
+
+# Actuator配置
+management:
+    endpoints:
+        web:
+            exposure:
+                include: health,info,metrics
+    endpoint:
+        health:
+            show-details: always
